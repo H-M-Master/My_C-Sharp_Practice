@@ -1,0 +1,7 @@
+{
+  "code-runner.runInTerminal": true,
+  "code-runner.executorMap": {
+    "csharp": "cd $dir && dotnet run --project $fileNameWithoutExt.csproj"
+  },
+  "omnisharp.dotnetPath": "/usr/local/share/dotnet/dotnet"
+}

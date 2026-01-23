@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": ".NET Core Launch (console)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/p1/bin/Debug/net10.0/MyCSharpApp.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/p1",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    }
+  ]
+}

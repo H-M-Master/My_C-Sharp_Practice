@@ -1,0 +1,14 @@
+/Users/hemujianyi/Downloads/同步空间/文件资料/cSharpPractice/p1/bin/Debug/net10.0/MyCSharpApp
+/Users/hemujianyi/Downloads/同步空间/文件资料/cSharpPractice/p1/bin/Debug/net10.0/MyCSharpApp.deps.json
+/Users/hemujianyi/Downloads/同步空间/文件资料/cSharpPractice/p1/bin/Debug/net10.0/MyCSharpApp.runtimeconfig.json
+/Users/hemujianyi/Downloads/同步空间/文件资料/cSharpPractice/p1/bin/Debug/net10.0/MyCSharpApp.dll
+/Users/hemujianyi/Downloads/同步空间/文件资料/cSharpPractice/p1/bin/Debug/net10.0/MyCSharpApp.pdb
+/Users/hemujianyi/Downloads/同步空间/文件资料/cSharpPractice/p1/obj/Debug/net10.0/MyCSharpApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/hemujianyi/Downloads/同步空间/文件资料/cSharpPractice/p1/obj/Debug/net10.0/MyCSharpApp.AssemblyInfoInputs.cache
+/Users/hemujianyi/Downloads/同步空间/文件资料/cSharpPractice/p1/obj/Debug/net10.0/MyCSharpApp.AssemblyInfo.cs
+/Users/hemujianyi/Downloads/同步空间/文件资料/cSharpPractice/p1/obj/Debug/net10.0/MyCSharpApp.csproj.CoreCompileInputs.cache
+/Users/hemujianyi/Downloads/同步空间/文件资料/cSharpPractice/p1/obj/Debug/net10.0/MyCSharpApp.dll
+/Users/hemujianyi/Downloads/同步空间/文件资料/cSharpPractice/p1/obj/Debug/net10.0/refint/MyCSharpApp.dll
+/Users/hemujianyi/Downloads/同步空间/文件资料/cSharpPractice/p1/obj/Debug/net10.0/MyCSharpApp.pdb
+/Users/hemujianyi/Downloads/同步空间/文件资料/cSharpPractice/p1/obj/Debug/net10.0/MyCSharpApp.genruntimeconfig.cache
+/Users/hemujianyi/Downloads/同步空间/文件资料/cSharpPractice/p1/obj/Debug/net10.0/ref/MyCSharpApp.dll
