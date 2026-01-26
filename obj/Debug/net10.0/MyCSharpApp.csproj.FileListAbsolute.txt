@@ -12,3 +12,4 @@
 /Users/hemujianyi/Downloads/同步空间/文件资料/cSharpPractice/p1/obj/Debug/net10.0/MyCSharpApp.pdb
 /Users/hemujianyi/Downloads/同步空间/文件资料/cSharpPractice/p1/obj/Debug/net10.0/MyCSharpApp.genruntimeconfig.cache
 /Users/hemujianyi/Downloads/同步空间/文件资料/cSharpPractice/p1/obj/Debug/net10.0/ref/MyCSharpApp.dll
+/Users/hemujianyi/Downloads/同步空间/文件资料/cSharpPractice/p1/obj/Debug/net10.0/MyCSharpApp.sourcelink.json

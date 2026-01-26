@@ -25,7 +25,6 @@ public static class PracticeClass
 {
     public static void PracticeWrite()
     {
-        //* *//
         string firstName;
         firstName = "Bob";
         int num = 3;
@@ -33,7 +32,38 @@ public static class PracticeClass
         //两种不同的字符串插值方式，Console是类名，WriteLine是方法名
         Console.WriteLine("两种不同的字符串插值方式(Console是类名 WriteLine是方法名):");
         Console.WriteLine("Hello, " + firstName + "! You have " + num + " messages in your inbox. The temperature is " + num2 + " celsius.");
-        Console.WriteLine($"Hello, {firstName}! You have {num} messages in your inbox. The temperature is {num2} celsius.");
+        Console.WriteLine($"Hello, {firstName}! You have {num} messages in your inbox. The temperature is {num2} celsius.");//字符串内插
         Console.WriteLine(firstName);
     }
+
+    public static void Concatenation()//C#入门，第一部分，第五单元
+    {
+        string firstName = "Bob";
+        string greeting = "Hello";
+        string message = greeting + " " + firstName + "! ";//中间变量
+        message = $"Hello {firstName}!";//字符串内插
+        Console.WriteLine(message);
+        //写代码时应该尽量避免中间变量，正确输出为：
+        Console.WriteLine(greeting + " " + firstName + "! " + "(避免中间变量版输出)");
+        Console.WriteLine($"{greeting}! {firstName}! (无中间变量且字符串内插)");
+        //在下方示例中，$ 符号允许引用括号内的 projectName 变量，而 @ 符号允许使用未转义的 \ 字符。@为逐字文本前缀符号。
+        string projectName = "First-Project";
+        Console.WriteLine($@"C:\Output\{projectName}\Data");
+        Console.WriteLine();
+        //代码挑战：
+        string projectName2 = "ACME";
+        string russianMessage = "\u041f\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0440\u0443\u0441\u0441\u043a\u0438\u0439 \u0432\u044b\u0432\u043e\u0434";//Unicode 编码表示“查看俄语输出”
+        Console.WriteLine($@"View English output: c:\Exercise\{projectName2}\data.txt");
+        Console.WriteLine($@"{russianMessage}: c:\Exercise\{projectName2}\ru-RU\data.txt");
+        //代码挑战修正：
+        string englishLocation = $@"c:\Exercise\{projectName2}\data.txt";
+        Console.WriteLine($"View English output:\n\t{englishLocation}\n");// \n换行，\t制表符
+        string russianLocation = $@"c:\Exercise\{projectName2}\ru-RU\data.txt";
+        Console.WriteLine($"{russianMessage}:\n\t{russianLocation}\n");
+    }
+    public static void UnusedMethod()//C#入门，第一部分，第六单元
+    {
+        // 这个方法目前没有被调用
+    }
+
 }
