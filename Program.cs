@@ -7,6 +7,7 @@ public class Program
        //PracticeClass.PracticeWrite();
        //PracticeClass.Concatenation();
        //PracticeClass.ExecuteNumericalValue();
-       PracticeClass.StudentGrading();
+       //PracticeClass.StudentGrading();
+       PracticeClass.StudentGPACaculator();
     }
 }
