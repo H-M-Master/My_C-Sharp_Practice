@@ -20,7 +20,15 @@ public class Program
         //PracticeClass.Part2Challenge();
         //PracticeClass.LogicBoolean();
         //PracticeClass.LogicBooleanPractice();
-        PracticeClass.LogicBooleanChallenge();
+        //PracticeClass.LogicBooleanChallenge();
+        //PracticeClass.CodeBlockScope();
+        //PracticeClass.SwitchCaseBranch();
+        //PracticeClass.SwitchCaseChallenge();
+        //PracticeClass.ForLoopIteration();
+        //PracticeClass.FizzBuzzChallenge();
+        //PracticeClass.WhileDoWhileLoop();
+        //PracticeClass.WhileDoWhileLoopChallenge();
+        PracticeClass.WhileDoWhileLoopChallenge2();
     
 
 

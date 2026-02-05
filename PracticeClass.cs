@@ -22,6 +22,7 @@
 - using：引入命名空间，或用于资源释放（using 语句）。
 */
 using System.Diagnostics;
+using System.Reflection.Metadata;
 using System.Security.Cryptography;
 
 public static class PracticeClass
@@ -746,16 +747,254 @@ public static class PracticeClass
     public static void LogicBooleanChallenge()
     {
         string permission = "Admin";//or Manager
-        int adminLevel = Random.Shared.Next(0,101);
+        int adminLevel = Random.Shared.Next(0, 101);
         Console.WriteLine(adminLevel);
-        if(permission.Contains("Admin"))
-        Console.WriteLine($"{(adminLevel > 55 ? "Welcome, Super Admin user." : "Welcome, Admin user.")}");
-        else if(permission.Contains("Manager"))
-        Console.WriteLine($"{(adminLevel > 20 ? "Contact an Admin for access." : "You do not have sufficient privileges.")}");
+        if (permission.Contains("Admin"))
+            Console.WriteLine($"{(adminLevel > 55 ? "Welcome, Super Admin user." : "Welcome, Admin user.")}");
+        else if (permission.Contains("Manager"))
+            Console.WriteLine($"{(adminLevel > 20 ? "Contact an Admin for access." : "You do not have sufficient privileges.")}");
         else
         {
             Console.WriteLine("You do not have sufficient privileges.");
         }
     }
 
+    //C#入门，第三部分，第二单元，在 C# 中使用代码块控制变量范围和逻辑 
+    public static void CodeBlockScope()
+    {
+        int[] numbers = [4, 8, 15, 16, 23, 42];
+        int total = 0;
+        bool found = false;
+        foreach (int number in numbers)
+        {
+            total += number;
+            if (number == 42)//当你不写 { } 时，C# 编译器只会将 if 之后的第一行代码（直到第一个分号 ; 为止）视为受控逻辑。
+                found = true;
+            if (found)
+                Console.WriteLine($"Set contains 42");
+        }
+        Console.WriteLine($"Total:{total}");
+    }
+    //C#入门，第三部分，第三单元，使用 C# 中的 switch-case 结构将代码流分支 
+    public static void SwitchCaseBranch()
+    {
+        int employeeLevel = 200;
+        string employeeName = "John Smith";
+        string title = "";
+
+        switch (employeeLevel)
+        {
+            case 100:// 这里可以写多行，不需要花括号
+                title = "Junior Associate";
+                break;// break 标志着这一块的结束
+            case 150:
+                {
+                    title = "AssociateTest";//在这个 case 里重新定义了 title 变量，这个 title 变量的作用域仅限于这个 case 代码块内
+                    break;
+                }
+            case 200:
+                title = "Senior Associate";
+                break;
+            case 300:
+                title = "Manager";
+                break;
+            case 400:
+                title = "Seniopr Manager";
+                break;
+            case 500:
+            case 600:  // 这两个角色执行同样的逻辑
+                title = "Director";
+                break;
+            default://在代码里不是必须写的。如果没有 default 也没有匹配的 case，程序会直接跳过整个 switch 块。
+                title = "Associate";
+                break;
+        }
+        Console.WriteLine($"{employeeName}, {title}");
+    }
+    //C#入门，第三部分，第三单元，使用 C# 中的 switch-case 结构将代码流分支 ,代码挑战,if改switch
+    public static void SwitchCaseChallenge()
+    {
+        // SKU = Stock Keeping Unit. 
+        // SKU value format: <product #>-<2-letter color code>-<size code>
+        string sku = "01-MN-L";
+
+        string[] product = sku.Split('-');
+
+        string type = "";
+        string color = "";
+        string size = "";
+
+        switch (product[0])
+        {
+            case "01":
+                type = "Sweat shirt";
+                break;
+            case "02":
+                type = "T-Shirt";
+                break;
+            case "03":
+                type = "Sweat pants";
+                break;
+            default:
+                type = "Other";
+                break;
+        }
+
+        switch (product[1])
+        {
+            case "BL":
+                color = "Black";
+                break;
+            case "MN":
+                color = "Maroon";
+                break;
+            default:
+                color = "White";
+                break;
+        }
+
+        switch (product[2])
+        {
+            case "S":
+                size = "Small";
+                break;
+            case "M":
+                size = "Medium";
+                break;
+            case "L":
+                size = "Large";
+                break;
+            default:
+                size = "One Size Fits All";
+                break;
+
+        }
+
+        Console.WriteLine($"Product: {size} {color} {type}");
+
+    }
+
+    //C#入门，第三部分，第四单元，创建和配置 for 迭代循环 
+    public static void ForLoopIteration()
+    {
+        for (int i = 10; i >= 0; i--)
+        {
+            Console.WriteLine(i);
+        }
+
+        string[] names = ["Alex", "Eddie", "David", "Michael"];
+        foreach (var name in names)
+        {
+            //foreach 循环变量是只读的，不能在循环内更改它的值, 如果需要修改，只能使用传统的for循环
+            //You can't do this: if (name == "David") name = "Sammy";
+        }
+    }
+
+    //C#入门，第三部分，第四单元，创建和配置 for 迭代循环 ,代码挑战,FizzBuzz
+    public static void FizzBuzzChallenge()
+    {
+        for (int i = 0; i <= 100; i++)
+        {
+            if (i % 3 == 0 && i % 5 == 0)
+            {
+                Console.WriteLine($"{i} - FizzBuzz");
+            }
+            else if (i % 3 == 0)
+            {
+                Console.WriteLine($"{i} - Fizz");
+            }
+            else if (i % 5 == 0)
+            {
+                Console.WriteLine($"{i} - Buzz");
+            }
+            else
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+    }
+
+    //C#入门，第三部分，第五单元，使用do-while 和 while 语句在代码中添加循环逻辑 
+    public static void WhileDoWhileLoop()
+    {
+        int current = Random.Shared.Next(1, 11);
+        while (current >= 3)
+        {
+            Console.WriteLine($"Current value: {current}");
+            current = Random.Shared.Next(1, 11);
+        }
+        Console.WriteLine($"Final value: {current}");
+
+        Random random = new Random();
+        int current2 = random.Next(1, 11);
+        do
+        {
+            current2 = random.Next(1, 11);
+            Console.WriteLine($"Current value: {current2}");
+            if (current2 >= 8)
+                continue;
+        }
+        while (current2 != 7);
+    }
+
+    //C#入门，第三部分，第五单元，使用do-while 和 while 语句在代码中添加循环逻辑 
+    public static void WhileDoWhileLoopChallenge()
+    {
+        int heroHealth = 100;
+        int monsterHealth = 100;
+        int heroAttack = Random.Shared.Next(1, 11);
+        int monsterAttack = Random.Shared.Next(1, 11);
+
+        while (heroHealth > 0 && monsterHealth > 0)
+        {
+            monsterHealth -= heroAttack;
+            Console.WriteLine($"The hero attacks the monster for {heroAttack} damage. The monster's health is now {monsterHealth}.");
+
+            if (monsterHealth <= 0)
+            {
+                Console.WriteLine("The monster has been defeated! The hero is victorious!");
+                break;
+            }
+
+            heroHealth -= monsterAttack;
+            Console.WriteLine($"The monster attacks the hero for {monsterAttack} damage. The hero's health is now {heroHealth}.");
+
+            if (heroHealth <= 0)
+            {
+                Console.WriteLine("The hero has been defeated! The monster is victorious!");
+                break;
+            }
+
+            heroAttack = Random.Shared.Next(1, 11);
+            monsterAttack = Random.Shared.Next(1, 11);
+        }
+    }
+
+    //***关键***C#入门，第三部分，第五单元，使用do-while 和 while 语句在代码中添加循环逻辑, 完成挑战活动以区分 do 和 while 迭代语句
+    public static void WhileDoWhileLoopChallenge2()
+    {
+        string? readResult;
+        bool validEntry = false;//string?使得
+        Console.WriteLine("Enter a string(at least 3 characters):");
+        do
+        {
+            readResult = Console.ReadLine();
+            if (readResult.Length >= 3)
+            {
+                validEntry = true;
+                Console.WriteLine($"You entered: {readResult}, Passed validation.");
+            }
+            else
+            {
+                Console.WriteLine("Invalid entry. Please enter at least 3 characters:");
+            }
+        } while(validEntry == false);
+
+        string? readResult2;
+        bool validNumber= false;
+        Console.WriteLine("Enter a integer:");
+
+
+    }
 }
