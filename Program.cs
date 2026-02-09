@@ -28,7 +28,8 @@ public class Program
         //PracticeClass.FizzBuzzChallenge();
         //PracticeClass.WhileDoWhileLoop();
         //PracticeClass.WhileDoWhileLoopChallenge();
-        PracticeClass.WhileDoWhileLoopChallenge2();
+        //PracticeClass.WhileDoWhileLoopChallenge2();
+        PracticeClass.ContosoPets();
     
 
 

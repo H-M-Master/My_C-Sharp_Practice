@@ -973,14 +973,14 @@ public static class PracticeClass
 
     //***关键***C#入门，第三部分，第五单元，使用do-while 和 while 语句在代码中添加循环逻辑, 完成挑战活动以区分 do 和 while 迭代语句
     public static void WhileDoWhileLoopChallenge2()
-    {
-        string? readResult;
-        bool validEntry = false;//string?使得
+    {   //1. 验证字符串输入至少包含 3 个字符。
+        string? readResult;//string?使得readResult可以接受null值，避免了编译器的警告，因为Console.ReadLine()可能返回null。
+        bool validEntry = false;
         Console.WriteLine("Enter a string(at least 3 characters):");
         do
         {
             readResult = Console.ReadLine();
-            if (readResult.Length >= 3)
+            if (readResult != null && readResult.Length >= 3)
             {
                 validEntry = true;
                 Console.WriteLine($"You entered: {readResult}, Passed validation.");
@@ -989,11 +989,204 @@ public static class PracticeClass
             {
                 Console.WriteLine("Invalid entry. Please enter at least 3 characters:");
             }
-        } while(validEntry == false);
-
+        } while (validEntry == false);
+        //2. 验证整数输入在 5 到 10 之间（含 5 和 10）。
         string? readResult2;
-        bool validNumber= false;
-        Console.WriteLine("Enter a integer:");
+        bool IsNumber = false;
+        bool validNumber = false;
+        int numericValue = 0;
+        Console.WriteLine("Enter a integer (5 - 10):");
+        readResult2 = Console.ReadLine();
+        IsNumber = int.TryParse(readResult2, out numericValue);//如果readResult2可以被转化为整数，则返回true，并将该整数赋值给numericValue，否则返回false，numericValue赋值为0。
+        while (validNumber == false)
+        {
+            if (numericValue >= 5 && numericValue <= 10 && IsNumber)
+            {
+                Console.WriteLine($"You entered: {numericValue}, Passed validation.");
+                validNumber = true;
+            }
+            else
+            {
+                Console.WriteLine("Invalid entry. Please enter an integer between 5 and 10:");
+                readResult2 = Console.ReadLine();
+                IsNumber = int.TryParse(readResult2, out numericValue);
+            }
+        }
+        //3. 验证管理员名称输入为“管理员”、“经理”或“用户”（不区分大小写）。 Trim() 方法删除字符串开头和结尾的所有空白字符，包括包括制表符（Tab）、换行符等。
+        string? AdminName;
+        bool validAdmin = false;
+        Console.WriteLine("Enter the admin name (must be 'admin'):");
+        do
+        {
+            AdminName = Console.ReadLine();
+            AdminName = AdminName.Trim().ToLower();//Trim() 方法删除字符串开头和结尾的所有空白字符，包括包括制表符（Tab）、换行符等。
+            if (AdminName == "administrator")
+            {
+                Console.WriteLine("Welcome, admin!");
+                validAdmin = true;
+            }
+            else if (AdminName == "manager")
+            {
+                Console.WriteLine("Welcome, manager!");
+                validAdmin = true;
+            }
+            else if (AdminName == "user")
+            {
+                Console.WriteLine("Welcome, user!");
+                validAdmin = true;
+            }
+            else
+            {
+                Console.WriteLine($"Invalid entry. You entered {AdminName}. Please enter the admin name(Administrator, Manager, User):");
+            }
+        }
+        while (validAdmin == false);
+
+
+        //
+        string[] myStrings = { "I like pizza. I like roast chicken. I like salad", "I like all three of the menu choices" };
+
+        foreach (string str in myStrings)
+        {
+            //int location = -1;
+            string transfer = str;
+            //正确的while写法, 可以通过将IndexOf存入location变量来优化性能，避免每次循环都调用3次IndexOf方法
+            while (transfer.Length > 0)
+            {
+                if (transfer.IndexOf('.') == -1)
+                {
+                    Console.WriteLine(transfer);
+                    break;
+                }
+                Console.WriteLine(transfer.Substring(0, transfer.IndexOf('.')));//str[0..location] C# 8.0 新特性 也可以这么写
+                transfer = transfer.Remove(0, transfer.IndexOf('.') + 1).TrimStart();//str[(location + 1)..] C# 8.0 新特性 也可以这么写(substring方法)
+            }
+            // for循环的小屎山（try first）
+            // for (int i = 0; i < transfer.Length; i++)
+            // {
+            //     if (transfer[i] == '.' || i == transfer.Length - 1)
+            //     {
+            //         if(transfer[i] == '.')
+            //         {
+            //         location = i;
+            //         Console.WriteLine(transfer.Substring(0, location));//str[0..location] C# 8.0 新特性 也可以这么写
+            //         transfer = transfer.Remove(0, location + 1).TrimStart();//str[(location + 1)..] C# 8.0 新特性 也可以这么写(substring方法)
+            //         i = 0;
+            //         }
+            //         else
+            //         {
+            //             location = i + 1;
+            //             Console.WriteLine(transfer.Substring(0, location));
+            //         }
+            //     }
+            // }
+        }
+    }
+
+    public static void ContosoPets()
+    {
+        // the ourAnimals array will store the following: 
+        string animalSpecies = "";
+        string animalID = "";
+        string animalAge = "";
+        string animalPhysicalDescription = "";
+        string animalPersonalityDescription = "";
+        string animalNickname = "";
+
+        // variables that support data entry
+        int maxPets = 8;
+        string? readResult;
+        string menuSelection = "";
+
+        // array used to store runtime data, there is no persisted data
+        string[,] ourAnimals = new string[maxPets, 6];
+
+        // TODO: Convert the if-elseif-else construct to a switch statement
+
+        // create some initial ourAnimals array entries
+        for (int i = 0; i < maxPets; i++)
+        {
+            if (i == 0)
+            {
+                animalSpecies = "dog";
+                animalID = "d1";
+                animalAge = "2";
+                animalPhysicalDescription = "medium sized cream colored female golden retriever weighing about 65 pounds. housebroken.";
+                animalPersonalityDescription = "loves to have her belly rubbed and likes to chase her tail. gives lots of kisses.";
+                animalNickname = "lola";
+            }
+            else if (i == 1)
+            {
+                animalSpecies = "dog";
+                animalID = "d2";
+                animalAge = "9";
+                animalPhysicalDescription = "large reddish-brown male golden retriever weighing about 85 pounds. housebroken.";
+                animalPersonalityDescription = "loves to have his ears rubbed when he greets you at the door, or at any time! loves to lean-in and give doggy hugs.";
+                animalNickname = "loki";
+            }
+            else if (i == 2)
+            {
+                animalSpecies = "cat";
+                animalID = "c3";
+                animalAge = "1";
+                animalPhysicalDescription = "small white female weighing about 8 pounds. litter box trained.";
+                animalPersonalityDescription = "friendly";
+                animalNickname = "Puss";
+            }
+            else if (i == 3)
+            {
+                animalSpecies = "cat";
+                animalID = "c4";
+                animalAge = "?";
+                animalPhysicalDescription = "";
+                animalPersonalityDescription = "";
+                animalNickname = "";
+            }
+            else
+            {
+                animalSpecies = "";
+                animalID = "";
+                animalAge = "";
+                animalPhysicalDescription = "";
+                animalPersonalityDescription = "";
+                animalNickname = "";
+            }
+
+            ourAnimals[i, 0] = "ID #: " + animalID;
+            ourAnimals[i, 1] = "Species: " + animalSpecies;
+            ourAnimals[i, 2] = "Age: " + animalAge;
+            ourAnimals[i, 3] = "Nickname: " + animalNickname;
+            ourAnimals[i, 4] = "Physical description: " + animalPhysicalDescription;
+            ourAnimals[i, 5] = "Personality: " + animalPersonalityDescription;
+        }
+
+        // display the top-level menu options
+
+        Console.Clear();
+
+        Console.WriteLine("Welcome to the Contoso PetFriends app. Your main menu options are:");
+        Console.WriteLine(" 1. List all of our current pet information");
+        Console.WriteLine(" 2. Add a new animal friend to the ourAnimals array");
+        Console.WriteLine(" 3. Ensure animal ages and physical descriptions are complete");
+        Console.WriteLine(" 4. Ensure animal nicknames and personality descriptions are complete");
+        Console.WriteLine(" 5. Edit an animal’s age");
+        Console.WriteLine(" 6. Edit an animal’s personality description");
+        Console.WriteLine(" 7. Display all cats with a specified characteristic");
+        Console.WriteLine(" 8. Display all dogs with a specified characteristic");
+        Console.WriteLine();
+        Console.WriteLine("Enter your selection number (or type Exit to exit the program)");
+
+        readResult = Console.ReadLine();
+        if (readResult != null)
+        {
+            menuSelection = readResult.ToLower();
+        }
+
+        Console.WriteLine($"You selected menu option {menuSelection}.");
+        Console.WriteLine("Press the Enter key to continue");
+
+        // pause code execution
+        readResult = Console.ReadLine();
 
 
     }
