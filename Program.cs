@@ -29,10 +29,10 @@ public class Program
         //PracticeClass.WhileDoWhileLoop();
         //PracticeClass.WhileDoWhileLoopChallenge();
         //PracticeClass.WhileDoWhileLoopChallenge2();
-        PracticeClass.ContosoPets();
-    
-
-
+        //PracticeClass.ContosoPets();
+        //PracticeClass.ContosoPetsChallenge();
+        //PracticeClass.DataType();
+        PracticeClass.DataTypeChange();
 
     }
 }
